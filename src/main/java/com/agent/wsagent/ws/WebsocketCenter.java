@@ -1,5 +1,6 @@
 package com.agent.wsagent.ws;
 
+import cn.hutool.http.HttpUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.util.Strings;
 import org.springframework.beans.factory.annotation.Value;
@@ -89,6 +90,13 @@ public class WebsocketCenter {
             System.out.println(msg);
             Session ws       = stringSessionMap.get("ws");
             ws.getBasicRemote().sendText(msg);
+            return;
+        }
+        if("ip".equals(message)){
+            String ip = HttpUtil.get("http://pv.sohu.com/cityjson?ie=utf-8");
+            ip = ip.replace("var returnCitySN = ","");
+            Session     ws    = stringSessionMap.get("ws");
+            ws.getBasicRemote().sendText(ip);
             return;
         }
         if("jps".equalsIgnoreCase(message)){
