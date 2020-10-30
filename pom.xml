@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.agent</groupId>
-    <artifactId>don't-stop-agent</artifactId>
+    <artifactId>dont-stop-agent</artifactId>
     <version>1.0</version>
-    <name>don't-stop-agent</name>
+    <name>dont-stop-agent</name>
     <description>无需重启 在线操作</description>
 
     <properties>
