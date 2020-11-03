@@ -23,7 +23,7 @@ public class CheckAgent {
             }
             File jarFile = new File(System.getProperty("user.home") + File.separator + ".Dstop" + File.separator + "lib" + File.separator +"agent-1.0.jar");
             if(!jarFile.exists()){
-                String url = "https://imageyu.oss-cn-beijing.aliyuncs.com/agent-1.0.jar";
+                String url = "https://imageyu.oss-cn-beijing.aliyuncs.com/agent-1.1.jar";
                 HttpUtil.downloadFile(url, FileUtil.file(file.getAbsolutePath()), new StreamProgress() {
 
                     @Override

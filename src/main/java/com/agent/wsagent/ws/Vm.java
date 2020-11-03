@@ -13,7 +13,6 @@ public class Vm {
             if(!close){
                 VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop" + File.separator + "lib" + File.separator +"agent-1.0.jar",port);
             }
-                    // VM.detach();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

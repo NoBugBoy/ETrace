@@ -11,7 +11,6 @@ import javax.websocket.*;
 import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.BufferedReader;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -99,6 +98,21 @@ public class WebsocketCenter {
             ws.getBasicRemote().sendText(ip);
             return;
         }
+        if(message.startsWith("aop")){
+            String[] split = message.split(" ");
+            if(split.length == 3){
+                Session java = stringSessionMap.get("java");
+                if(java!=null){
+                    java.getBasicRemote().sendText(message);
+                }else{
+                    sendError(session);
+                }
+                return;
+         }else{
+                Session ws = stringSessionMap.get("ws");
+                ws.getBasicRemote().sendText("请补全参数");
+            }
+        }
         if("jps".equalsIgnoreCase(message)){
             InputStreamReader inputStreamReader = null;
             BufferedReader    bufferedReader    = null;
@@ -116,7 +130,6 @@ public class WebsocketCenter {
                         sb.append(str).append("\n");
                         jpss.add(str.split(" ")[0]);
                     }
-
                 }
                 Session     java    = stringSessionMap.get("ws");
                 if(java!=null){
