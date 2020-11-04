@@ -11,7 +11,7 @@ public class Vm {
         try {
             VM = VirtualMachine.attach(pid);
             if(!close){
-                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop" + File.separator + "lib" + File.separator +"agent-1.1.jar",port);
+                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-1.1.jar",port);
             }
         } catch (Exception e) {
             e.printStackTrace();
