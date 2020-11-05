@@ -98,6 +98,11 @@ public class WebsocketCenter {
             ws.getBasicRemote().sendText(ip);
             return;
         }
+        if("monitor".equals(message)){
+            Session     ws    = stringSessionMap.get("java");
+            ws.getBasicRemote().sendText(message);
+            return;
+        }
         if(message.startsWith("aop")){
             String[] split = message.split(" ");
             if(split.length == 3){

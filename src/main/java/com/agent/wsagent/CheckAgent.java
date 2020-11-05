@@ -13,9 +13,9 @@ import java.io.File;
 @Slf4j
 public class CheckAgent {
 
-    @PostConstruct
+    // @PostConstruct
     public void downloadAgent(){
-        File file = new File(System.getProperty("user.home") + File.separator + ".Dstop" + File.separator + "lib");
+        File file = new File(System.getProperty("user.home") + File.separator + ".Dstop" );
         try {
             if(!file.exists()){
                 file.mkdirs();
