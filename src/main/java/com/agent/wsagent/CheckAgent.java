@@ -13,16 +13,16 @@ import java.io.File;
 @Slf4j
 public class CheckAgent {
 
-    // @PostConstruct
+    @PostConstruct
     public void downloadAgent(){
         File file = new File(System.getProperty("user.home") + File.separator + ".Dstop" );
         try {
             if(!file.exists()){
                 file.mkdirs();
             }
-            File jarFile = new File(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-1.1.jar");
+            File jarFile = new File(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-1.2.jar");
             if(!jarFile.exists()){
-                String url = "https://imageyu.oss-cn-beijing.aliyuncs.com/agent-1.1.jar";
+                String url = "https://imageyu.oss-cn-beijing.aliyuncs.com/agent-1.2.jar";
                 HttpUtil.downloadFile(url, FileUtil.file(file.getAbsolutePath()), new StreamProgress() {
 
                     @Override

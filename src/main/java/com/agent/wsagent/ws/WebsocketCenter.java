@@ -86,9 +86,13 @@ public class WebsocketCenter {
         //mg 开头意味着是agent回复的消息
         if(message.startsWith("mg")){
             String msg = message.substring(2);
-            System.out.println(msg);
             Session ws       = stringSessionMap.get("ws");
             ws.getBasicRemote().sendText(msg);
+            return;
+        }
+        if(message.startsWith("ds")){
+            Session ws       = stringSessionMap.get("ws");
+            ws.getBasicRemote().sendText(message);
             return;
         }
         if("ip".equals(message)){

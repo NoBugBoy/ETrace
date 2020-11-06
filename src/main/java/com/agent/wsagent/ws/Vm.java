@@ -11,8 +11,8 @@ public class Vm {
         try {
             VM = VirtualMachine.attach(pid);
             if(!close){
-                VM.loadAgent("/Users/yujian/Documents/javaproject/myproject/java-agent/target/java-agent-1.1-jar-with-dependencies.jar",port);
-                // VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-1.1.jar",port);
+                // VM.loadAgent("/Users/yujian/Documents/javaproject/myproject/java-agent/target/java-agent-1.1-jar-with-dependencies.jar",port);
+                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-1.2.jar",port);
             }
         } catch (Exception e) {
             e.printStackTrace();
