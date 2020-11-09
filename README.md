@@ -50,12 +50,10 @@ java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar dont-stop-agent-1.2.jar
 4. 监控大盘，监控内存，gc，线程等数据
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201030150348804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RheV9EYXlfTm9fQnVn,size_16,color_FFFFFF,t_70#pic_center)
-#### 1.1版本
-1. 更新了aop功能，可以打印方法入参和返回值
-### 1.2版本
-1. 新加了监控大盘
-### 1.2.1版本
-1. 增加线程cpu监控，点击列表中数据弹出对应堆栈信息快速定位问题
+#### 版本迭代
+1.   1.1版本更新了aop功能，可以打印方法入参和返回值
+2.   1.2版本更新了监控大盘，监控更多信息
+3.   1.2.1版本更名为ETrace,新增线程堆栈追踪功能（该本版线程cpu显示有bug）
 ---
 
 server端源码（vue已经打包在了static下，启动直接访问lp:9675即可),授权这里其实没做，默认是同户名是**admin**，密码是**admin123**，如果需要打包记得关闭单元测试
