@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.agent</groupId>
-    <artifactId>dont-stop-agent</artifactId>
+    <artifactId>ETrace</artifactId>
     <version>1.2</version>
-    <name>dont-stop-agent</name>
-    <description>无需重启 在线操作</description>
+    <name>ETrace</name>
+    <description>easy trace</description>
 
     <properties>
         <java.version>1.8</java.version>

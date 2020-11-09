@@ -1,5 +1,6 @@
 package com.agent.wsagent.ws;
 
+import com.agent.wsagent.CheckAgent;
 import com.sun.tools.attach.VirtualMachine;
 
 import java.io.File;
@@ -11,8 +12,8 @@ public class Vm {
         try {
             VM = VirtualMachine.attach(pid);
             if(!close){
-                // VM.loadAgent("/Users/yujian/Documents/javaproject/myproject/java-agent/target/java-agent-1.1-jar-with-dependencies.jar",port);
-                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-1.2.jar",port);
+                // VM.loadAgent("/Users/yujian/Documents/javaproject/myproject/java-agent/target/java-agent-1.2-jar-with-dependencies.jar",port);
+                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-"+ CheckAgent.version+".jar",port);
             }
         } catch (Exception e) {
             e.printStackTrace();

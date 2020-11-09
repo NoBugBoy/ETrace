@@ -107,6 +107,16 @@ public class WebsocketCenter {
             ws.getBasicRemote().sendText(message);
             return;
         }
+        if("threads".equals(message)){
+            Session     ws    = stringSessionMap.get("java");
+            ws.getBasicRemote().sendText(message);
+            return;
+        }
+        if(message.startsWith("threadstack")){
+            Session     ws    = stringSessionMap.get("java");
+            ws.getBasicRemote().sendText(message);
+            return;
+        }
         if(message.startsWith("aop")){
             String[] split = message.split(" ");
             if(split.length == 3){
