@@ -25,13 +25,12 @@ public class WebsocketCenter {
     @Value("${server.port}")
     private       String port;
     private static volatile String pid = "";
-    private static volatile boolean close = false;
-    private  static  final Map<String, Session> stringSessionMap = new ConcurrentHashMap<String, Session>();
-    private  static  final Map<Session, String> SessionMap = new ConcurrentHashMap<>();
+    // private static volatile boolean close = false;
+    private  static  final Map<String, Session> stringSessionMap = new ConcurrentHashMap<String, Session>(2);
+    private  static  final Map<Session, String> SessionMap = new ConcurrentHashMap<>(2);
     private static final   List<String>         jpss       = new ArrayList<>();
     @OnClose
     public void OnClose(){
-        close = false;
         String s = SessionMap.get(this);
         if(Strings.isNotEmpty(s)){
             stringSessionMap.remove(s);
@@ -51,7 +50,13 @@ public class WebsocketCenter {
      */
     @OnOpen
     public void onOpen(Session session,@PathParam("id") String id) throws IOException {
-        if("ws".equals(id)){
+        if(id.equals("ws")){
+            Session java = stringSessionMap.get("java");
+            if(java!=null){
+                //关闭旧连接
+                java.close();
+                stringSessionMap.remove("java");
+            }
             stringSessionMap.put("ws",session);
             session.getBasicRemote().sendText("连接成功，等待发送指令");
         }else if("java".equals(id)){
@@ -60,10 +65,6 @@ public class WebsocketCenter {
     }
     @OnMessage
     public void onMessage(String message, Session session) throws IOException, InterruptedException {
-        //找到占cpu大的线程在干什么
-        //占有内存大的对象和数量 不stw
-        //清理日志不影响输出
-
         if(message.equals("java")){
             //由agent发送回来
             stringSessionMap.put("java",session);
@@ -73,16 +74,16 @@ public class WebsocketCenter {
             }
             return;
         }
-        if(message.equals("rejava")){
-            log.info("agent已经存在,接收到重连信息，重连成功..");
-            close = true;
-            stringSessionMap.put("java",session);
-            Session ws = stringSessionMap.get("ws");
-            if(ws!=null){
-                ws.getBasicRemote().sendText("agent已经准备就绪");
-            }
-            return;
-        }
+        // if(message.equals("rejava")){
+        //     log.info("agent已经存在,接收到重连信息，重连成功..");
+        //     close = true;
+        //     stringSessionMap.put("java",session);
+        //     Session ws = stringSessionMap.get("ws");
+        //     if(ws!=null){
+        //         ws.getBasicRemote().sendText("agent已经准备就绪");
+        //     }
+        //     return;
+        // }
         //mg 开头意味着是agent回复的消息
         if(message.startsWith("mg")){
             String msg = message.substring(2);
@@ -186,10 +187,10 @@ public class WebsocketCenter {
                     boolean contains = jpss.contains(split[1]);
                     if(contains){
                         pid = split[1];
-                        if (close) {
-                            ws.getBasicRemote().sendText("The agent is ready!");
-                        }
-                        Vm.attach(split[1], close,port);
+                        // if (close) {
+                        //     ws.getBasicRemote().sendText("The agent is ready!");
+                        // }
+                        Vm.attach(split[1],port);
                     }else{
                         ws.getBasicRemote().sendText("请输入正确的进程ID");
                     }
