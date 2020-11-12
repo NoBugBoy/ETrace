@@ -61,7 +61,7 @@ server端源码（vue已经打包在了static下，启动直接访问lp:9675即�
 
 代码在IDEA可以直接运行，如果通过jar包运行需要额外指定参数：
 ```shell
-java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar dont-stop-agent-1.0.jar
+java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.1.jar 
 ```
 
 ---
