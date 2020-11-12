@@ -8,11 +8,11 @@ import java.io.IOException;
 
 public class Vm {
     private static  VirtualMachine VM;
-    protected static void attach(String pid,String port) {
+    protected static void attach(String pid,String param) {
         try {
             VM = VirtualMachine.attach(pid);
-            // VM.loadAgent("/Users/yujian/Documents/javaproject/myproject/java-agent/target/java-agent-1.2.1-jar-with-dependencies.jar",port);
-                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-"+ CheckAgent.version+".jar",port);
+            // VM.loadAgent("/Users/yujian/Documents/javaproject/myproject/java-agent/target/java-agent-1.2.1-jar-with-dependencies.jar",param);
+                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-"+ CheckAgent.version+".jar");
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
