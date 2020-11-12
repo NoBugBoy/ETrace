@@ -30,8 +30,8 @@
 1. 如果是linux系统，
 ```shell
 #版本号去git上查看
-wget https://imageyu.oss-cn-beijing.aliyuncs.com/dont-stop-agent-1.2.jar
-java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar dont-stop-agent-1.2.jar
+wget https://imageyu.oss-cn-beijing.aliyuncs.com/ETrace-1.2.1.jar 
+java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.1.jar 
 ```
 2. 其他操作系统可以直接点击连接下载，然后指定tools.jar对应的目录
 ---
