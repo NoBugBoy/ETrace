@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.agent</groupId>
     <artifactId>ETrace</artifactId>
-    <version>1.2</version>
+    <version>1.2.2</version>
     <name>ETrace</name>
     <description>easy trace</description>
 
