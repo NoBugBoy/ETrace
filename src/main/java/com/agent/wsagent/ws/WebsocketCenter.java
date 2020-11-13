@@ -25,17 +25,6 @@ public class WebsocketCenter {
     public static final String CLIENT = "ws";
     public   static  final Map<String, Session> stringSessionMap = new ConcurrentHashMap<>(2);
     public static final   List<String>         jpss       = new ArrayList<>();
-    @OnClose
-    public void OnClose(){
-        // Session session = stringSessionMap.get(CLIENT);
-        // stringSessionMap.remove(CLIENT);
-        // SessionMap.remove(session);
-    }
-
-    @OnError
-    public void onError(Session session, Throwable error){
-        OnClose();
-    }
     @OnOpen
     public void onOpen(Session session,@PathParam("id") String id) throws IOException {
         if(id.equals(CLIENT)){
