@@ -1,5 +1,7 @@
 # ETrace
 
+已经上传至中央maven仓库 https://mvnrepository.com/search?q=com.github.nobugboy
+
 > **引言**
 
  在使用Arthas的过程中,感觉有些功能很好用，但是有些不敢敲命令行的用起来会比较麻烦，,本着学习的态度,自己设计了一套**无需停机，无侵入,埋点，热修复，监控等功能**的应用，并提供了WEB页面进行操作,并且会不断集成一些常用的功能  。
@@ -30,7 +32,7 @@
 1. 如果是linux系统，
 ```shell
 #版本号去git上查看
-wget https://imageyu.oss-cn-beijing.aliyuncs.com/ETrace-1.2.2.jar
+wget http://maven.aliyun.com/nexus/content/groups/public/com/github/nobugboy/ETrace/1.2.2/ETrace-1.2.2.jar
 java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.2.jar
 ```
 2. 其他操作系统可以直接点击连接下载，然后指定tools.jar对应的目录
