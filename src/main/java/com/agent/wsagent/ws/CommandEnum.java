@@ -168,8 +168,13 @@ public enum CommandEnum implements SwitchInterface {
             String classFile = split[1];
             WebsocketCenter.sendToAgent(buildRedefinedCommand.apply(classFile));
         }
+    },
+    JAVAINFO{
+        @Override
+        public void execute(String command) {
+            WebsocketCenter.sendToAgent(command);
+        }
     };
-
     public synchronized static void select(String command){
         if(StringUtils.isEmpty(command)){
             return;

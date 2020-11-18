@@ -8,6 +8,7 @@ public class WsAgentApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WsAgentApplication.class, args);
+
     }
 
 }
