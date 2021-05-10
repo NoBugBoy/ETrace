@@ -51,8 +51,6 @@ java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.4.jar
 3. 打印高cpu线程堆栈，快速定位cpu高居不下线程执行的代码位置，以便解决问题
 4. 监控大盘，监控内存，gc，线程等数据
 5. 快速查看线程当前堆栈
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20201030150348804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RheV9EYXlfTm9fQnVn,size_16,color_FFFFFF,t_70#pic_center)
 #### 版本迭代
 1.   1.1版本更新了aop功能，可以打印方法入参和返回值
 2.   1.2版本更新了监控大盘，监控更多信息
