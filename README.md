@@ -32,8 +32,8 @@
 1. 如果是linux系统，
 ```shell
 #版本号去git上查看
-wget http://maven.aliyun.com/nexus/content/groups/public/com/github/nobugboy/ETrace/1.2.3/ETrace-1.2.3.jar
-java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.3.jar
+wget http://maven.aliyun.com/nexus/content/groups/public/com/github/nobugboy/ETrace/1.2.4/ETrace-1.2.4.jar
+java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.4.jar
 ```
 2. 其他操作系统可以直接点击连接下载，然后指定tools.jar对应的目录
 ---
@@ -67,9 +67,9 @@ server端源码（vue已经打包在了static下，启动直接访问lp:9675即�
 
 代码在IDEA可以直接运行，如果通过jar包运行需要额外指定参数：
 ```shell
-java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.3.jar
+java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.4.jar
 # 如果java环境变量默认是$JAVA_HOME则不需要加参数
-java -jar ETrace-1.2.3.jar
+java -jar ETrace-1.2.4.jar
 ```
 
 ---
