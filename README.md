@@ -50,6 +50,7 @@ java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.3.jar
 2. 补加执行时间，在指定的类中，比如com.abc中，对其中的所有方法或某一个方法(**需要方法名**)，进行追加打印执行时间
 3. 打印高cpu线程堆栈，快速定位cpu高居不下线程执行的代码位置，以便解决问题
 4. 监控大盘，监控内存，gc，线程等数据
+5. 快速查看线程当前堆栈
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20201030150348804.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0RheV9EYXlfTm9fQnVn,size_16,color_FFFFFF,t_70#pic_center)
 #### 版本迭代
@@ -58,6 +59,7 @@ java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.3.jar
 3.   1.2.1版本更名为ETrace,新增线程堆栈追踪功能（该本版线程cpu显示有bug）
 4.   1.2.2修复重连bug和一些小bug（建议使用该版本）
 5.   1.2.3新增查看工作目录和虚拟机参数等信息
+6.   1.2.4将client改为netty，解决默认参数问题，优化操作方式，解决Spring代理类无法被动态织入代码
 ---
 
 server端源码（vue已经打包在了static下，启动直接访问lp:9675即可),授权这里其实没做，默认是同户名是**admin**，密码是**admin123**，如果需要打包记得关闭单元测试
@@ -66,6 +68,8 @@ server端源码（vue已经打包在了static下，启动直接访问lp:9675即�
 代码在IDEA可以直接运行，如果通过jar包运行需要额外指定参数：
 ```shell
 java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.3.jar
+# 如果java环境变量默认是$JAVA_HOME则不需要加参数
+java -jar ETrace-1.2.3.jar
 ```
 
 ---
