@@ -70,7 +70,5 @@ java -Xbootclasspath/a:$JAVA_HOME/lib/tools.jar -jar ETrace-1.2.4.jar
 java -jar ETrace-1.2.4.jar
 ```
 
----
-由于业余时间独立制作，有些使用还是不是很方便，比如页面使用前需要先设置对应server端的ip，而且目前端口号（**9675**）还没办法修改，如果有时间后续会继续完善推出新功能，如果有想加的功能，或者有想一起做的可以私信或者评论
 
 
