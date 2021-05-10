@@ -11,7 +11,7 @@ public class Vm {
     protected static void attach(String pid,String param) {
         try {
             VM = VirtualMachine.attach(pid);
-            // VM.loadAgent("/home/java-agent-1.2.2-jar-with-dependencies.jar",param);
+            //VM.loadAgent("/java-agent-1.2.3-jar-with-dependencies.jar");
                VM.loadAgent(System.getProperty("user.home") + File.separator + ".Dstop"  + File.separator +"agent-"+ CheckAgent.version+".jar",param);
         } catch (Exception e) {
             e.printStackTrace();

@@ -17,7 +17,7 @@
     </developers>
     <groupId>com.github.nobugboy</groupId>
     <artifactId>ETrace</artifactId>
-    <version>1.2.3</version>
+    <version>1.2.4</version>
     <name>ETrace</name>
     <description>easy trace</description>
     <licenses>

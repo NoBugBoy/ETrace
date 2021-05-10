@@ -12,7 +12,7 @@ import java.io.File;
 @Component
 @Slf4j
 public class CheckAgent {
-    public static String version = "1.2.3";
+    public static String version = "1.2.4";
     @PostConstruct
     public void downloadAgent(){
         File file = new File(System.getProperty("user.home") + File.separator + ".Dstop" );

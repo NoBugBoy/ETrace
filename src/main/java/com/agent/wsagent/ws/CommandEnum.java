@@ -10,11 +10,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public enum CommandEnum implements SwitchInterface {
+    //
     IP{
         @Override
         public void execute(String command) {
-            String ip = HttpUtil.get("http://pv.sohu.com/cityjson?ie=utf-8");
-            ip = ip.replace("var returnCitySN = ","");
+            String ip = HttpUtil.get("http://ip.sb");
             WebsocketCenter.sendToAgent(ip);
         }
     },

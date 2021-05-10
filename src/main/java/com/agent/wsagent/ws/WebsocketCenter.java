@@ -3,6 +3,7 @@ package com.agent.wsagent.ws;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.system.ApplicationHome;
+import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.stereotype.Component;
 
 import javax.websocket.*;
@@ -10,6 +11,7 @@ import javax.websocket.server.PathParam;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -23,7 +25,7 @@ public class WebsocketCenter {
     public static volatile String pid = "";
     public static final String AGENT= "java";
     public static final String CLIENT = "ws";
-    public   static  final Map<String, Session> stringSessionMap = new ConcurrentHashMap<>(2);
+    public   static  final SessionMap stringSessionMap = new SessionMap();
     public static final   List<String>         jpss       = new ArrayList<>();
     @OnOpen
     public void onOpen(Session session,@PathParam("id") String id) throws IOException {
@@ -74,12 +76,17 @@ public class WebsocketCenter {
         CommandEnum.select(message);
 
     }
+    @OnError
+    public void onError(Session session, Throwable error) {
+    }
+
     public static void  sendError(Session session){
         try {
-            session.getBasicRemote().sendText("请先agent到Java进程");
+            session.getBasicRemote().sendText("未Attach或目标进程已关闭");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
     public static String getJarPath(){
         ApplicationHome h    = new ApplicationHome(WebsocketCenter.class);
